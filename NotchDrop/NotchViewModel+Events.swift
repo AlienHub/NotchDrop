@@ -27,14 +27,17 @@ extension NotchViewModel {
                     } else if deviceNotchRect.insetBy(dx: inset, dy: inset).contains(mouseLocation) {
                         notchClose()
                         // for the same height as device notch, open the url of project
-                    } else if headlineOpenedRect.contains(mouseLocation) {
+                    }
+                    else if headlineOpenedRect.contains(mouseLocation) {
+                        // 点击标题栏区域时关闭notch
+                        // notchClose()
                         // for clicking headline which mouse event may handled by another app
                         // open the menu
-                        if let nextValue = ContentType(rawValue: contentType.rawValue + 1) {
-                            contentType = nextValue
-                        } else {
-                            contentType = ContentType(rawValue: 0)!
-                        }
+                        // if let nextValue = ContentType(rawValue: contentType.rawValue + 1) {
+                        //     contentType = nextValue
+                        // } else {
+                        //     contentType = ContentType(rawValue: 0)!
+                        // }
                     }
                 case .closed, .popping:
                     // touch inside, open
@@ -50,6 +53,34 @@ extension NotchViewModel {
             .sink { [weak self] input in
                 guard let self else { return }
                 optionKeyPressed = input
+            }
+            .store(in: &cancellables)
+        
+        events.scrollGesture
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] direction in
+                guard let self else { return }
+                // 只在notch打开时响应滑动手势
+                guard status == .opened else { return }
+                
+                // 检查鼠标是否在notch区域内
+                let mouseLocation = NSEvent.mouseLocation
+                guard notchOpenedRect.contains(mouseLocation) else { return }
+                
+                let currentType = contentType
+                switch direction {
+                case .left:
+                    switchToPreviousContentType()
+                    NotificationCenter.default.post(name: .init("SwipeGesture"), object: "← \(localizedTitle(for: contentType))")
+                case .right:
+                    switchToNextContentType()
+                    NotificationCenter.default.post(name: .init("SwipeGesture"), object: "\(localizedTitle(for: contentType)) →")
+                }
+                
+                print("滑动切换: \(localizedTitle(for: currentType)) → \(localizedTitle(for: contentType))")
+                
+                // 触发触觉反馈
+                hapticSender.send()
             }
             .store(in: &cancellables)
 
@@ -117,5 +148,13 @@ extension NotchViewModel {
     func destroy() {
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
+    }
+    
+    private func localizedTitle(for type: ContentType) -> String {
+        switch type {
+        case .normal: return "临时"
+        case .directory: return "目录"
+        case .menu: return "菜单"
+        }
     }
 }

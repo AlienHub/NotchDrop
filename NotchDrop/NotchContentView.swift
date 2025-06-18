@@ -18,16 +18,21 @@ struct NotchContentView: View {
             switch vm.contentType {
             case .normal:
                 HStack(spacing: vm.spacing) {
-                    ShareView(vm: vm, type: .airdrop)
-                    ShareView(vm: vm, type: .generic)
+                    if vm.showAirDrop {
+                        ShareView(vm: vm, type: .airdrop)
+                    }
+                    if vm.showGenericShare {
+                        ShareView(vm: vm, type: .generic)
+                    }
                     TrayView(vm: vm)
+                        .frame(maxWidth: .infinity) // 当分享功能被隐藏时，让TrayView占据更多空间
                 }
                 .transition(.scale(scale: 0.8).combined(with: .opacity))
+            case .directory:
+                DirectoryContentView(vm: vm)
+                    .transition(.scale(scale: 0.8).combined(with: .opacity))
             case .menu:
                 NotchMenuView(vm: vm)
-                    .transition(.scale(scale: 0.8).combined(with: .opacity))
-            case .settings:
-                NotchSettingsView(vm: vm)
                     .transition(.scale(scale: 0.8).combined(with: .opacity))
             }
         }
@@ -35,10 +40,69 @@ struct NotchContentView: View {
     }
 }
 
-#Preview {
-    NotchContentView(vm: .init())
-        .padding()
-        .frame(width: 600, height: 150, alignment: .center)
-        .background(.black)
-        .preferredColorScheme(.dark)
+// MARK: - Previews
+
+#Preview("Normal Mode") {
+    NotchContentView(vm: {
+        let vm = NotchViewModel()
+        vm.contentType = .normal
+        return vm
+    }())
+    .padding()
+    .frame(width: 600, height: 150)
+    .background(.black)
+    .preferredColorScheme(.dark)
+}
+
+#Preview("Directory Mode") {
+    NotchContentView(vm: {
+        let vm = NotchViewModel()
+        vm.contentType = .directory
+        vm.directoryURL = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
+        return vm
+    }())
+    .padding()
+    .frame(width: 600, height: 150)
+    .background(.black)
+    .preferredColorScheme(.dark)
+}
+
+#Preview("Menu Mode") {
+    NotchContentView(vm: {
+        let vm = NotchViewModel()
+        vm.contentType = .menu
+        return vm
+    }())
+    .padding()
+    .frame(width: 600, height: 150)
+    .background(.black)
+    .preferredColorScheme(.dark)
+}
+
+#Preview("Normal Mode - Only TrayView") {
+    NotchContentView(vm: {
+        let vm = NotchViewModel()
+        vm.contentType = .normal
+        vm.showAirDrop = false
+        vm.showGenericShare = false
+        return vm
+    }())
+    .padding()
+    .frame(width: 600, height: 150)
+    .background(.black)
+    .preferredColorScheme(.dark)
+}
+
+#Preview("Normal Mode - Only AirDrop") {
+    NotchContentView(vm: {
+        let vm = NotchViewModel()
+        vm.contentType = .normal
+        vm.showAirDrop = true
+        vm.showGenericShare = false
+        return vm
+    }())
+    .padding()
+    .frame(width: 600, height: 150)
+    .background(.black)
+    .preferredColorScheme(.dark)
 }

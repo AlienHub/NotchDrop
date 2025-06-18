@@ -7,7 +7,7 @@
 
 import Cocoa
 
-private let notchHeight: CGFloat = 200
+private let notchHeight: CGFloat = 400
 
 class NotchWindowController: NSWindowController {
     var vm: NotchViewModel?

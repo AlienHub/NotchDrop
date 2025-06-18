@@ -12,6 +12,10 @@ struct NotchView: View {
 
     @State var dropTargeting: Bool = false
 
+    init(vm: NotchViewModel) {
+        _vm = StateObject(wrappedValue: vm)
+    }
+
     var notchSize: CGSize {
         switch vm.status {
         case .closed:
@@ -48,12 +52,15 @@ struct NotchView: View {
                 .opacity(vm.notchVisible ? 1 : 0.3)
             Group {
                 if vm.status == .opened {
-                    VStack(spacing: vm.spacing) {
+                    VStack(spacing: vm.spacing / 2) {
                         NotchHeaderView(vm: vm)
+                            // .padding(.top, -vm.spacing / 2) // 让header更靠近顶部
+                            .padding(.horizontal, vm.spacing) // 保持水平边距
                         NotchContentView(vm: vm)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.horizontal, vm.spacing) // 保持水平边距
                     }
-                    .padding(vm.spacing)
+                    .padding(.bottom, vm.spacing) // 只保持底部边距
                     .frame(maxWidth: vm.notchOpenedSize.width, maxHeight: vm.notchOpenedSize.height)
                     .zIndex(1)
                 }
@@ -70,6 +77,9 @@ struct NotchView: View {
         .animation(vm.animation, value: vm.status)
         .preferredColorScheme(.dark)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .onAppear {
+            // 可以在这里设置默认视图，如果需要的话
+        }
     }
 
     var notch: some View {

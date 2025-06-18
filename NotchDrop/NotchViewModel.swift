@@ -4,6 +4,23 @@ import Foundation
 import LaunchAtLogin
 import SwiftUI
 
+// MARK: - Main View Type
+enum MainViewType: Int, CaseIterable, Identifiable, Codable {
+    case temporary = 0
+    case directory = 1
+    
+    var id: Int { rawValue }
+    
+    var localized: String {
+        switch self {
+        case .temporary:
+            return NSLocalizedString("Temporary Files", comment: "")
+        case .directory:
+            return NSLocalizedString("Directory Files", comment: "")
+        }
+    }
+}
+
 class NotchViewModel: NSObject, ObservableObject {
     var cancellables: Set<AnyCancellable> = []
     let inset: CGFloat
@@ -11,7 +28,17 @@ class NotchViewModel: NSObject, ObservableObject {
     init(inset: CGFloat = -4) {
         self.inset = inset
         super.init()
+        loadDirectoryURL()
         setupCancellables()
+    }
+    
+    private func loadDirectoryURL() {
+        if let url = UserDefaults.standard.url(forKey: "directoryURL") {
+            directoryURL = url
+        } else {
+            // 默认设置为用户Downloads目录（有沙盒权限）
+            directoryURL = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
+        }
     }
 
     deinit {
@@ -40,9 +67,9 @@ class NotchViewModel: NSObject, ObservableObject {
     }
 
     enum ContentType: Int, Codable, Hashable, Equatable {
-        case normal
-        case menu
-        case settings
+        case normal = 0      // 临时文件模式
+        case directory = 1   // 目录文件模式
+        case menu = 2        // 菜单模式
     }
 
     var notchOpenedRect: CGRect {
@@ -80,12 +107,34 @@ class NotchViewModel: NSObject, ObservableObject {
     @PublishedPersist(key: "hapticFeedback", defaultValue: true)
     var hapticFeedback: Bool
 
+    // MARK: - Share Settings
+    @PublishedPersist(key: "showAirDrop", defaultValue: true)
+    var showAirDrop: Bool
+    
+    @PublishedPersist(key: "showGenericShare", defaultValue: true)
+    var showGenericShare: Bool
+
+    // MARK: - Directory Settings
+    @PublishedPersist(key: "defaultView", defaultValue: .temporary)
+    var defaultView: MainViewType
+    
+    @Published var directoryURL: URL? {
+        didSet {
+            if let url = directoryURL {
+                UserDefaults.standard.set(url, forKey: "directoryURL")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "directoryURL")
+            }
+        }
+    }
+
     let hapticSender = PassthroughSubject<Void, Never>()
 
     func notchOpen(_ reason: OpenReason) {
         openReason = reason
         status = .opened
-        contentType = .normal
+        // 根据用户的默认视图设置来决定显示哪个视图
+        contentType = defaultView == .directory ? .directory : .normal
         NSApp.activate(ignoringOtherApps: true)
     }
 
@@ -95,8 +144,30 @@ class NotchViewModel: NSObject, ObservableObject {
         contentType = .normal
     }
 
-    func showSettings() {
-        contentType = .settings
+    func showDirectory() {
+        contentType = .directory
+    }
+
+
+
+    func showMenu() {
+        contentType = .menu
+    }
+    
+    func switchToNextContentType() {
+        let allTypes: [ContentType] = [.normal, .directory, .menu]
+        if let currentIndex = allTypes.firstIndex(of: contentType) {
+            let nextIndex = (currentIndex + 1) % allTypes.count
+            contentType = allTypes[nextIndex]
+        }
+    }
+    
+    func switchToPreviousContentType() {
+        let allTypes: [ContentType] = [.normal, .directory, .menu]
+        if let currentIndex = allTypes.firstIndex(of: contentType) {
+            let previousIndex = (currentIndex - 1 + allTypes.count) % allTypes.count
+            contentType = allTypes[previousIndex]
+        }
     }
 
     func notchPop() {

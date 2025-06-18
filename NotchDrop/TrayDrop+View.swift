@@ -105,7 +105,7 @@ struct TrayView: View {
 #Preview {
     NotchContentView(vm: .init())
         .padding()
-        .frame(width: 550, height: 150, alignment: .center)
+        .frame(width: 550, height: 200, alignment: .center)
         .background(.black)
         .preferredColorScheme(.dark)
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,9 @@
 		50E26E292C3AF67B007CF247 /* TrayDrop+DropItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E26E282C3AF67B007CF247 /* TrayDrop+DropItem.swift */; };
 		50EFDB522C3BF7B4002D3E0F /* Ext+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EFDB512C3BF7B4002D3E0F /* Ext+NSImage.swift */; };
 		60AD62872C579F4400299297 /* NotchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD62862C579F4400299297 /* NotchSettingsView.swift */; };
+		932BD0A62DFFE139004DAF02 /* DirectoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932BD0A52DFFE139004DAF02 /* DirectoryMonitor.swift */; };
+		932BD0AA2DFFE384004DAF02 /* DirectoryFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932BD0A92DFFE384004DAF02 /* DirectoryFeatureView.swift */; };
+		932BD0AC2E019669004DAF02 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932BD0AB2E019669004DAF02 /* SettingsWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +84,17 @@
 		50E26E282C3AF67B007CF247 /* TrayDrop+DropItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrayDrop+DropItem.swift"; sourceTree = "<group>"; };
 		50EFDB512C3BF7B4002D3E0F /* Ext+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+NSImage.swift"; sourceTree = "<group>"; };
 		60AD62862C579F4400299297 /* NotchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchSettingsView.swift; sourceTree = "<group>"; };
+		932BD0A52DFFE139004DAF02 /* DirectoryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryMonitor.swift; sourceTree = "<group>"; };
+		932BD0A92DFFE384004DAF02 /* DirectoryFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFeatureView.swift; sourceTree = "<group>"; };
+		932BD0AB2E019669004DAF02 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		932BD0EA2E02802D004DAF02 /* NotchDrop copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NotchDrop copy-Info.plist"; path = "/Users/alien/Documents/Space/NotchDrop/NotchDrop copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		932BD0F02E028073004DAF02 /* NotchBin */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NotchBin; sourceTree = "<group>"; };
+		932BD0FF2E028075004DAF02 /* NotchBinTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NotchBinTests; sourceTree = "<group>"; };
+		932BD1092E028075004DAF02 /* NotchBinUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NotchBinUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5043817D2C3A86EA000ED325 /* Frameworks */ = {
@@ -106,8 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				504381822C3A86EA000ED325 /* NotchDrop */,
+				932BD0F02E028073004DAF02 /* NotchBin */,
+				932BD0FF2E028075004DAF02 /* NotchBinTests */,
+				932BD1092E028075004DAF02 /* NotchBinUITests */,
 				504381812C3A86EA000ED325 /* Products */,
 				504381AD2C3ADDAB000ED325 /* Frameworks */,
+				932BD0EA2E02802D004DAF02 /* NotchDrop copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +171,9 @@
 				5044EE9D2C3B0F3D00071C5C /* Ext+FileProvider.swift */,
 				502E41D52C3CEC990060660E /* Ext+NSAlert.swift */,
 				5044EE9F2C3B116000071C5C /* PublishedPersist.swift */,
+				932BD0A52DFFE139004DAF02 /* DirectoryMonitor.swift */,
+				932BD0A92DFFE384004DAF02 /* DirectoryFeatureView.swift */,
+				932BD0AB2E019669004DAF02 /* SettingsWindowController.swift */,
 			);
 			path = NotchDrop;
 			sourceTree = "<group>";
@@ -202,7 +222,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					5043817F2C3A86EA000ED325 = {
@@ -258,6 +278,7 @@
 			files = (
 				504381992C3A8893000ED325 /* NotchWindow.swift in Sources */,
 				5044EEA22C3B126F00071C5C /* TrayDrop+DropItemView.swift in Sources */,
+				932BD0A62DFFE139004DAF02 /* DirectoryMonitor.swift in Sources */,
 				504381AF2C3ADFF2000ED325 /* NotchContentView.swift in Sources */,
 				504381A02C3A8BA1000ED325 /* NotchView.swift in Sources */,
 				503D8EBA2C3F838200E173FF /* NotchMenuView.swift in Sources */,
@@ -281,7 +302,9 @@
 				148901542DC9149900F2E06C /* Share+View.swift in Sources */,
 				504381932C3A8755000ED325 /* main.swift in Sources */,
 				60AD62872C579F4400299297 /* NotchSettingsView.swift in Sources */,
+				932BD0AA2DFFE384004DAF02 /* DirectoryFeatureView.swift in Sources */,
 				504381A82C3A926E000ED325 /* NotchViewModel.swift in Sources */,
+				932BD0AC2E019669004DAF02 /* SettingsWindowController.swift in Sources */,
 				5044EEA02C3B116000071C5C /* PublishedPersist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,22 +443,23 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
-				DEVELOPMENT_TEAM = 964G86XT2P;
+				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 4LN7H7WJHV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotchDrop/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NotchDrop;
+				INFOPLIST_KEY_CFBundleDisplayName = NotchBin;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Lakr Aream. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Xiansheng Zhou. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.16;
-				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.NotchDrop;
+				MARKETING_VERSION = 2.17;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.NotchBin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -451,22 +475,23 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
-				DEVELOPMENT_TEAM = 964G86XT2P;
+				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 4LN7H7WJHV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotchDrop/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NotchDrop;
+				INFOPLIST_KEY_CFBundleDisplayName = NotchBin;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Lakr Aream. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Xiansheng Zhou. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.16;
-				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.NotchDrop;
+				MARKETING_VERSION = 2.17;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.NotchBin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

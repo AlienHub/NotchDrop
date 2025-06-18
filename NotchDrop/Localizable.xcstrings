@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "& Press Option to delete" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -570,42 +573,62 @@
         }
       }
     },
-    "Days" : {
+    "Default View:" : {
+      "comment" : "Default view label",
       "localizations" : {
-        "de" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tage"
+            "value" : "默认视图："
           }
-        },
+        }
+      }
+    },
+    "Directory" : {
+      "comment" : "The 'Directory' view type",
+      "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Days"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jours"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日々"
+            "value" : "Directory"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "天"
+            "value" : "目录"
           }
-        },
-        "zh-Hant" : {
+        }
+      }
+    },
+    "Directory Files" : {
+      "localizations" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "天"
+            "value" : "目录文件"
+          }
+        }
+      }
+    },
+    "Directory:" : {
+      "comment" : "Directory label",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目录："
+          }
+        }
+      }
+    },
+    "Downloads" : {
+      "comment" : "Downloads label",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载"
           }
         }
       }
@@ -812,42 +835,55 @@
         }
       }
     },
-    "File Storage Time: " : {
+    "File Management" : {
+      "comment" : "File management section title",
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dateispeicherdauer:"
+            "value" : "Dateiverwaltung"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File Storage Time: "
+            "value" : "File Management"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Durée de stockage de fichier :"
+            "value" : "Gestion des fichiers"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイル保存時間:"
+            "value" : "ファイル管理"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "文件保存时间："
+            "value" : "文件管理"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "檔案儲存時間："
+            "value" : "檔案管理"
+          }
+        }
+      }
+    },
+    "File Storage Time:" : {
+      "comment" : "File storage time label",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件保存时间："
           }
         }
       }
@@ -1015,6 +1051,48 @@
         }
       }
     },
+    "General Settings" : {
+      "comment" : "General settings section title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres généraux"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般設定"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般設定"
+          }
+        }
+      }
+    },
     "German" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1096,7 +1174,9 @@
         }
       }
     },
-    "Haptic Feedback " : {
+    "Haptic Feedback" : {
+      "comment" : "Toggle for haptic feedback",
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1218,42 +1298,13 @@
         }
       }
     },
-    "Language: " : {
+    "Language:" : {
+      "comment" : "Language label",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sprache"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Language: "
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Langue :"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "言語:"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "语言："
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "語言："
           }
         }
       }
@@ -1463,42 +1514,28 @@
         }
       }
     },
-    "Notch Drop" : {
+    "No recent files found." : {
       "localizations" : {
-        "de" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notch Drop"
+            "value" : "没找到文件"
           }
-        },
+        }
+      }
+    },
+    "NotchDrop v%@ (%@)" : {
+      "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notch Drop"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notch Drop"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notch Drop"
+            "state" : "new",
+            "value" : "NotchDrop v%1$@ (%2$@)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "简放岛"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "簡放島"
+            "value" : "NotchDrop v%1$@ (%2$@)"
           }
         }
       }
@@ -1583,6 +1620,16 @@
         }
       }
     },
+    "Please select a directory in settings to see recent files." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在设置中选择一个目录来查看最近的文件。"
+          }
+        }
+      }
+    },
     "Press Option to delete" : {
       "localizations" : {
         "de" : {
@@ -1623,10 +1670,51 @@
         }
       }
     },
+    "Quit NotchDrop" : {
+      "comment" : "Quit menu item",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出"
+          }
+        }
+      }
+    },
+    "Select" : {
+      "comment" : "Select button label\nSelect button prompt",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择"
+          }
+        }
+      }
+    },
     "Selected sharing service not available" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选定的共享服务不可用"
+          }
+        }
+      }
+    },
+    "Send files directly to other Apple devices via AirDrop" : {
+      "comment" : "AirDrop description",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过隔空投送将文件直接发送到其他 Apple 设备"
+          }
+        }
+      }
     },
     "Settings" : {
+      "comment" : "Settings menu item\nSettings window title",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1701,8 +1789,152 @@
         }
       }
     },
+    "Share Settings" : {
+      "comment" : "Share settings section title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Freigabe-Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres de partage"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有設定"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享設定"
+          }
+        }
+      }
+    },
     "Sharing service cannot perform with given files" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共享服务无法使用给定文件执行"
+          }
+        }
+      }
+    },
+    "Show AirDrop" : {
+      "comment" : "Toggle to show/hide AirDrop",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AirDrop anzeigen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show AirDrop"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher AirDrop"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AirDropを表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示AirDrop"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示AirDrop"
+          }
+        }
+      }
+    },
+    "Show Generic Share" : {
+      "comment" : "Toggle to show/hide generic share",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Freigabe anzeigen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Generic Share"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le partage générique"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "汎用共有を表示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示通用分享"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示通用分享"
+          }
+        }
+      }
+    },
+    "Show system share menu with email, messages, cloud storage and other sharing options" : {
+      "comment" : "Generic share description",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示包含电子邮件、消息、云存储和其他共享选项的系统共享菜单"
+          }
+        }
+      }
     },
     "Simplified Chinese" : {
       "extractionState" : "manual",
@@ -1741,6 +1973,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "簡體中文"
+          }
+        }
+      }
+    },
+    "Temporary Files" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporäre Dateien"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporary Files"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichiers temporaires"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一時ファイル"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "临时文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暫存檔案"
           }
         }
       }
@@ -1826,46 +2099,6 @@
         }
       }
     },
-    "Time Unit" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeiteinheit"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Time Unit"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unité de temps"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "時間単位"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "时间单位"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "時間單位"
-          }
-        }
-      }
-    },
     "Traditional Chinese" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1947,42 +2180,13 @@
         }
       }
     },
-    "Version: %@ (Build: %@)" : {
+    "Two-finger swipe to switch" : {
+      "comment" : "Swipe tip",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version: %1$@ (Build: %2$@)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version: %1$@ (Build: %2$@)"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version: %1$@ (Build: %2$@)"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バージョン: %1$@ (ビルド: %2$@)"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "版本：%1$@ （构建：%2$@）"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版本：%1$@ （建置：%2$@）"
+            "value" : "两指轻扫即可切换"
           }
         }
       }

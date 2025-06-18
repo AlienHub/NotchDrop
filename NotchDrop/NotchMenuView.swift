@@ -17,6 +17,7 @@ struct NotchMenuView: View {
             close
             github
             donate
+            directory
             settings
             clear
         }
@@ -76,6 +77,18 @@ struct NotchMenuView: View {
         .clipShape(RoundedRectangle(cornerRadius: vm.cornerRadius))
     }
 
+    var directory: some View {
+        ColorButton(
+            color: ColorfulPreset.colorful.colors,
+            image: Image(systemName: "folder.fill"),
+            title: "Directory"
+        )
+        .onTapGesture {
+            vm.showDirectory()
+        }
+        .clipShape(RoundedRectangle(cornerRadius: vm.cornerRadius))
+    }
+
     var settings: some View {
         ColorButton(
             color: ColorfulPreset.colorful.colors,
@@ -83,7 +96,13 @@ struct NotchMenuView: View {
             title: LocalizedStringKey("Settings")
         )
         .onTapGesture {
-            vm.showSettings()
+            // 关闭notch并打开独立设置窗口
+            vm.notchClose()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                if let appDelegate = NSApp.delegate as? AppDelegate {
+                    appDelegate.showSettings()
+                }
+            }
         }
         .clipShape(RoundedRectangle(cornerRadius: vm.cornerRadius))
     }
@@ -127,10 +146,51 @@ private struct ColorButton: View {
     }
 }
 
-#Preview {
+// MARK: - Previews
+
+#Preview("NotchMenuView") {
     NotchMenuView(vm: .init())
         .padding()
-        .frame(width: 600, height: 150, alignment: .center)
+        .frame(width: 600, height: 150)
         .background(.black)
         .preferredColorScheme(.dark)
+}
+
+#Preview("Individual Buttons") {
+    VStack(spacing: 20) {
+        HStack(spacing: 20) {
+            ColorButton(
+                color: [.red],
+                image: Image(systemName: "xmark"),
+                title: "Exit"
+            )
+            .frame(width: 80, height: 80)
+            
+            ColorButton(
+                color: ColorfulPreset.colorful.colors,
+                image: Image(systemName: "gear"),
+                title: "Settings"
+            )
+            .frame(width: 80, height: 80)
+        }
+        
+        HStack(spacing: 20) {
+            ColorButton(
+                color: ColorfulPreset.colorful.colors,
+                image: Image(systemName: "folder.fill"),
+                title: "Directory"
+            )
+            .frame(width: 80, height: 80)
+            
+            ColorButton(
+                color: [.red],
+                image: Image(systemName: "trash"),
+                title: "Clear"
+            )
+            .frame(width: 80, height: 80)
+        }
+    }
+    .padding()
+    .background(.black)
+    .preferredColorScheme(.dark)
 }

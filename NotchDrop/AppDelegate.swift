@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var isFirstOpen = true
     var isLaunchedAtLogin = false
     var mainWindowController: NotchWindowController?
+    var settingsWindowController: SettingsWindowController?
 
     var timer: Timer?
 
@@ -24,6 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             object: nil
         )
         NSApp.setActivationPolicy(.accessory)
+        
+        // 添加设置窗口的键盘快捷键
+        setupMenuBar()
 
         isLaunchedAtLogin = LaunchAtLogin.wasLaunchedAtLogin
 
@@ -38,6 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.timer = timer
 
         rebuildApplicationWindows()
+    }
+
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        return true
     }
 
     func applicationWillTerminate(_: Notification) {
@@ -60,6 +68,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainWindowController = .init(screen: mainScreen)
         if isFirstOpen, !isLaunchedAtLogin {
             mainWindowController?.openAfterCreate = true
+        }
+        
+        // 重新创建设置窗口控制器
+        if let vm = mainWindowController?.vm {
+            settingsWindowController = SettingsWindowController(vm: vm)
         }
     }
 
@@ -89,5 +102,46 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else { return true }
         vm.notchOpen(.click)
         return true
+    }
+    
+    func showSettings() {
+        settingsWindowController?.showWindow()
+    }
+    
+    private func setupMenuBar() {
+        let mainMenu = NSMenu()
+        
+        // App菜单
+        let appMenuItem = NSMenuItem()
+        mainMenu.addItem(appMenuItem)
+        
+        let appMenu = NSMenu()
+        appMenuItem.submenu = appMenu
+        
+        // 设置菜单项
+        let settingsMenuItem = NSMenuItem(
+            title: NSLocalizedString("Settings", comment: "Settings menu item"),
+            action: #selector(openSettings),
+            keyEquivalent: ","
+        )
+        settingsMenuItem.target = self
+        appMenu.addItem(settingsMenuItem)
+        
+        // 分隔符
+        appMenu.addItem(NSMenuItem.separator())
+        
+        // 退出菜单项
+        let quitMenuItem = NSMenuItem(
+            title: NSLocalizedString("Quit NotchDrop", comment: "Quit menu item"),
+            action: #selector(NSApplication.terminate(_:)),
+            keyEquivalent: "q"
+        )
+        appMenu.addItem(quitMenuItem)
+        
+        NSApp.mainMenu = mainMenu
+    }
+    
+    @objc private func openSettings() {
+        showSettings()
     }
 }
